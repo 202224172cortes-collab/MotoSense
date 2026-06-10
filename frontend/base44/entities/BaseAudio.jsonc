@@ -1,0 +1,52 @@
+{
+  "name": "BaseAudio",
+  "type": "object",
+  "properties": {
+    "folder_id": {
+      "type": "string",
+      "description": "ID de la carpeta a la que pertenece"
+    },
+    "file_url": {
+      "type": "string",
+      "description": "URL del archivo de audio"
+    },
+    "file_name": {
+      "type": "string",
+      "description": "Nombre original del archivo"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Notas t\u00e9cnicas sobre este audio base"
+    },
+    "duration_seconds": {
+      "type": "number",
+      "description": "Duraci\u00f3n en segundos"
+    }
+  },
+  "required": [
+    "folder_id",
+    "file_url"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

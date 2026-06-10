@@ -1,0 +1,48 @@
+{
+  "name": "AudioFolder",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nombre de la carpeta / falla (ej: Motor Sano, Falla de Punter\u00eda)"
+    },
+    "description": {
+      "type": "string",
+      "description": "Descripci\u00f3n t\u00e9cnica de la falla o condici\u00f3n"
+    },
+    "color": {
+      "type": "string",
+      "description": "Color representativo en hex"
+    },
+    "audio_count": {
+      "type": "number",
+      "default": 0,
+      "description": "Cantidad de audios en la carpeta"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

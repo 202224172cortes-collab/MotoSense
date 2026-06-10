@@ -1,0 +1,80 @@
+{
+  "name": "AudioAnalysis",
+  "type": "object",
+  "properties": {
+    "file_url": {
+      "type": "string",
+      "description": "URL of the uploaded audio file"
+    },
+    "file_name": {
+      "type": "string",
+      "description": "Original file name"
+    },
+    "result": {
+      "type": "string",
+      "description": "AI analysis result"
+    },
+    "analysis_details": {
+      "type": "object",
+      "description": "Detailed analysis data from AI"
+    },
+    "duration_seconds": {
+      "type": "number",
+      "description": "Audio duration in seconds"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "analyzing",
+        "completed",
+        "error"
+      ],
+      "default": "pending"
+    }
+  },
+  "required": [
+    "file_url"
+  ],
+  "rls": {
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}
